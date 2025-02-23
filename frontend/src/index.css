@@ -1,0 +1,527 @@
+/**
+* index.css
+*
+* Single CSS file for handling all styles throughout the application
+*/
+/* Blurred Background Image inside Page Component */
+body {
+  font-family: "Roboto", serif;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  background-color: black; /* Black background for body */
+}
+
+/* Navbar Container */
+.navbar {
+  position: fixed;
+  top: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(241, 82, 19, 0.5);
+  padding: 1rem 1.5rem;
+  border-radius: 1rem;
+  z-index: 1000;
+}
+
+/* Navbar List */
+.navbar-list {
+  list-style: none;
+  display: flex;
+  gap: 3rem;
+  margin: 0;
+  padding: 0;
+}
+
+/* Navbar Items */
+.navbar-item a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  transition: color 0.3s ease, transform 0.3s ease;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  padding: 0.5rem;
+  border-radius: 1rem;
+}
+
+/* Hover Effect */
+.navbar-item a:hover {
+  background-color: #f39c12;
+  transform: scale(1.1);
+}
+
+/* Tooltip Styling */
+.navbar-item a::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: -2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #333;
+  color: #fff;
+  padding: 0.3rem 0.6rem;
+  border-radius: 0.3rem;
+  font-size: 0.75rem;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 999;
+}
+
+.navbar-item a:hover::after {
+  opacity: 1;
+  transform: translateX(-50%) translateY(-0.3rem);
+}
+
+/* Page Component with Blurred Background */
+.page-component {
+  position: relative;
+  max-width: 80%;
+  min-height: 80vh;
+  margin-top: 8rem;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 1.5rem;
+  box-shadow: 0 0.5rem 2rem rgba(0, 0, 0, 0.3);
+  border-radius: 1rem;
+  overflow: hidden;
+  color: #fff;
+  border: 0.2rem solid #f16100;
+}
+
+/* Background Blur using Pseudo-element */
+.page-component::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("./assets/lion.jpg") center/cover no-repeat;
+  filter: blur(0.8rem);
+  z-index: 0;
+}
+
+/* Overlay to reduce image brightness inside page component */
+.page-component::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 1;
+}
+
+/* Content inside page component to remain clear */
+.page-component > * {
+  position: relative;
+  z-index: 2;
+  filter: none;
+}
+
+/* Fixed Transparent Box Inside Page Component */
+.fixed-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.5);
+  overflow: auto;
+  z-index: 3;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+}
+
+/* Divider Line */
+.divider-line {
+  width: 2px;
+  height: 70%;
+  background-color: white;
+  margin: 0 2rem;
+}
+
+/* Heading Box */
+.heading-box {
+  flex: 1;
+  text-align: left;
+  max-width: 40%;
+  margin-left: 3rem;
+}
+
+.heading-box h1 {
+  font-size: 7rem;
+  margin: 0;
+}
+
+.heading-box h2 {
+  font-size: 2rem;
+  margin: 3rem;
+  padding: 2rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  max-width: 50%;
+  text-align: center;
+  border-radius: 3rem;
+}
+
+
+/* Pages List Box */
+.pages-box {
+  position: absolute;
+  top: 20%;
+  right: 10%;
+  text-align: center;
+  border: 2px solid #f39c12;
+  border-radius: 1rem;
+  min-width: 10%;
+  padding: 1rem;
+}
+
+.pages-box h3 {
+  font-size: 2rem;
+  margin: 0;
+}
+
+.pages-box ul {
+  list-style: none;
+  padding: 0;
+}
+
+.pages-box li {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.pages-box li a {
+  color: #fff;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: color 0.3s ease;
+}
+
+.pages-box li a:hover {
+  color: #f39c12;
+}
+
+.pages-box li svg {
+  font-size: 1.5rem;
+}
+
+/* Details Box */
+.details-box {
+  text-align: right;
+  align-self: flex-end;
+  margin-right: 2rem;
+  margin-bottom: 2rem;
+}
+
+.details-box p {
+  font-size: 1.5rem;
+  margin: 0.2rem 0;
+}
+/* Month Grid Popup */
+.month-grid {
+  position: fixed;
+  top: 20%;           /* adjust as needed */
+  left: 10%;          /* adjust for desired distance from the left */
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
+  padding: 1rem;
+  background-color: rgba(0, 0, 0, 0.95);
+  border: 2px solid #f39c12;
+  border-radius: 10px;
+  z-index: 9999999999999999999; /* very high to be above everything */
+}
+
+.month-item {
+  padding: 0.5rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  text-align: center;
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.8);
+  transition: background-color 0.3s;
+}
+
+.month-item.selected,
+.month-item:hover {
+  background-color: #f39c12;
+  color: white;
+}
+
+.selected-month {
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 1rem;
+  max-width: fit-content;
+  border: 2px solid #f16100;
+}
+
+.selected-month:hover {
+  background-color: #f16100;
+}
+
+/* Search Bar */
+.search-bar {
+  width: 20%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Transactions Grid */
+.transactions-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.transaction-card {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  padding: 1rem;
+  background-color: rgba(0, 0, 0, 0.7);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+  transition: transform 0.2s;
+  color: white;
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.transaction-card:hover {
+  transform: translateY(-5px);
+}
+
+.transaction-card img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-bottom: 0.5rem;
+  object-fit: cover;
+}
+
+.transaction-card h3 {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Fixed Pagination at Bottom */
+.pagination {
+  position: fixed;
+  bottom: 1rem;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  z-index: 5000; /* ensure it's below the month popup */
+}
+
+.pagination button {
+  padding: 0.5rem 1rem;
+  border: none;
+  background-color: #f39c12;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.pagination button:disabled {
+  background-color: #ddd;
+  cursor: not-allowed;
+}
+
+.pagination span {
+  font-weight: bold;
+}
+
+/* Modal Popup for Transaction Details */
+.transaction-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(255, 255, 255, 0.9);  /* transparent white */
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  z-index: 10000;
+  width: 50%;
+  max-width: 600px;
+  text-align: center;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 9999;
+}
+
+.transaction-modal h2 {
+  margin-top: 0;
+}
+
+.transaction-modal p {
+  margin-bottom: 0.5rem;
+}
+
+.transaction-modal img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+  object-fit: cover;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Close Button using FontAwesome */
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: red;
+}
+
+
+
+
+
+
+/* Contact Page Container */
+.contact-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+  background-color: black;
+  padding: 1rem;
+}
+
+/* Contact Card Styling */
+.contact-card {
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 2rem;
+  border-radius: 10px;
+  max-width: 600px;
+  width: 90%;
+  color: #fff;
+  box-shadow: 0 0.5rem 2rem rgba(0, 0, 0, 0.5);
+  text-align: center;
+}
+
+.contact-card h1 {
+  margin-bottom: 1rem;
+  font-size: 2.5rem;
+}
+
+.contact-card h2 {
+  margin-top: 2rem;
+  font-size: 2rem;
+}
+
+.contact-card p {
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.contact-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+  text-align: left;
+}
+
+.contact-card li {
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.contact-card a {
+  color: #f39c12;
+  text-decoration: none;
+}
+
+.contact-card a:hover {
+  text-decoration: underline;
+}
+
+
+
+/* Chart Box Styling */
+.chart-box {
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 1.5rem;
+  border-radius: 10px;
+  margin: 2rem auto;
+  width: 80%;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 0.5rem 2rem rgba(0, 0, 0, 0.3);
+}
+
+/* Chart Container */
+.chart-container {
+  width: 100%;
+  margin: 1.5rem auto;
+}
+
+
+
+
+/* Bar Chart Box – A new chart box style */
+.bar-chart-box {
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 2rem;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 800px;
+  text-align: center;
+  box-shadow: 0 0.5rem 2rem rgba(0, 0, 0, 0.3);
+  margin: 2rem auto;
+}
+
+.pie-chart-box {
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 1.5rem;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 500px;
+  text-align: center;
+  box-shadow: 0 0.5rem 2rem rgba(0, 0, 0, 0.3);
+  margin: 2rem auto;
+}
