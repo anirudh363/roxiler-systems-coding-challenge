@@ -23,6 +23,7 @@
  *   - nodemon
  * 
  * Notes:
+ *   - Create a ".env" file in the backend directory with PORT=5000, MONGO_URI(URI for MongoDB Connection) and MONGO_DB(Database name).
  *
  */
 
